@@ -42,9 +42,9 @@ COPY ./srcs/nginx.conf /etc/nginx/nginx.conf
 RUN service mysql start \
     && mysql -u root \
 	&& mysql --execute="CREATE DATABASE wp_base; \
-						GRANT ALL PRIVILEGES ON wp_base.* TO 'root'@'localhost'; \
-						FLUSH PRIVILEGES; \
-						UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user='root';"
+	GRANT ALL PRIVILEGES ON wp_base.* TO 'root'@'localhost'; \
+	FLUSH PRIVILEGES; \
+	UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user='root';"
 
 #############
 # wordpress #
