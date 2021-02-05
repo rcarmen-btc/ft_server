@@ -42,8 +42,8 @@ $cfg['Servers'][$i]['AllowNoPassword'] = true; /* was false by default */
 /* User used to manipulate with storage */
 // $cfg['Servers'][$i]['controlhost'] = '';
 // $cfg['Servers'][$i]['controlport'] = '';
-// $cfg['Servers'][$i]['controluser'] = 'pma';
-// $cfg['Servers'][$i]['controlpass'] = 'pmapass';
+//$cfg['Servers'][$i]['controluser'] = 'heyhey';
+//$cfg['Servers'][$i]['controlpass'] = 'Monika';
 
 /* Storage database and tables */
 // $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';

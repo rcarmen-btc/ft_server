@@ -1,22 +1,20 @@
 server {
 	listen 80;
 	listen [::]:80;
+
 	server_name localhost;
+
 	return 301 https://$server_name$request_uri;
 }
 
 server {
 	listen 443 ssl ;
 	listen [::]:443 ssl ;
-
-	server_name localhost;
-
-	ssl on;
 	ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
 	ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
 
+	server_name localhost;
 	root /var/www/public;
-
 	index index.php index.html index.nginx-debian.html index.php;
 
 	location / {
@@ -27,4 +25,6 @@ server {
 		include snippets/fastcgi-php.conf;
 		fastcgi_pass unix:/run/php/php7.3-fpm.sock;
 	}
+
 }
+
