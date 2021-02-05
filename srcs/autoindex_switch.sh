@@ -12,5 +12,5 @@ else
 	echo "[ fail ] Error!!!"
 fi
 
-
 service nginx restart
+
