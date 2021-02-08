@@ -6,6 +6,6 @@ docker exec -it ft_server bash
 ```
 OR
 ```bash
-docker build ft_server .
+docker build -t ft_server .
 docker run -it --name ft_server -p 80:80 -p 443:443 ft_server
 ```
