@@ -84,4 +84,4 @@ COPY ./srcs/activate_services.sh .
 
 EXPOSE 80 443
 
-CMD ["bash", "activate_services.sh"]
+CMD bash activate_services.sh; sleep infinity
