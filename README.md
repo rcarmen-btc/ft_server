@@ -9,3 +9,13 @@ OR
 docker build -t ft_server .
 docker run -it --name ft_server --rm -p 80:80 -p 443:443 ft_server
 ```
+
+```bash
+===IMAGE===
+docker image
+docker rmi
+===CONTAINER===
+docker ps [-a]
+docker rm
+docker inspect
+```

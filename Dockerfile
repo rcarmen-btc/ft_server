@@ -63,9 +63,12 @@ RUN chown -R www-data:www-data /var/www/public/wordpress && \
 ##############
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-english.tar.gz
 RUN tar -xzvf phpMyAdmin-5.0.2-english.tar.gz && \
-	mv phpMyAdmin-5.0.2-english/ /var/www/public/phpmyadmin
-RUN chown -R www-data:www-data /var/www/public/phpmyadmin
+	mv phpMyAdmin-5.0.2-english/ /var/www/public/phpmyadmin/
 COPY ./srcs/config.inc.php /var/www/public/phpmyadmin
+RUN chown -R www-data:www-data /var/www/public/phpmyadmin && \
+	find /var/www/public/phpmyadmin -type d -exec chmod 775 {} + && \
+	find /var/www/public/phpmyadmin -type f -exec chmod 664 {} + && \
+	chmod 660 /var/www/public/phpmyadmin/config.inc.php
 
 #############
 # ssl stuff #
@@ -74,7 +77,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 	-subj "/C=ru/ST=Moscow/L=Moscow/O=no/OU=no/CN=public/" \
 	-keyout /etc/ssl/private/nginx-selfsigned.key \
 	-out /etc/ssl/certs/nginx-selfsigned.crt
-#RUN openssl dhparam -out /etc/nginx/dhparam.pem 4096
+# RUN openssl dhparam -out /etc/nginx/dhparam.pem 4096
 
 ################
 #   scripts    #
